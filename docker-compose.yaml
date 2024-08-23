@@ -33,7 +33,7 @@ services:
       - microservicenetwork
 
   companymsvc:
-    image: 'acrcw/companymicrosvc:v1'
+    image: 'companymicrosvc:v1'
     build:
       context: .
     container_name: companymsvc
@@ -42,7 +42,7 @@ services:
       - rabbitmq-server
     environment:
       - SERVER_PORT=9091
-      - SPRING_DATA_MONGODB_URI=mongodb://joban:joban@mongo-db:27017/
+      - SPRING_DATA_MONGODB_URI=mongodb://root:root@mongo-db:27017/
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-service:7000/eureka
       - SPRING_DATA_MONGODB_DATABASE=company
       - MANAGEMENT.ZIPKIN.TRACING.ENDPOINT=http://zipkin:9411//api/v2/spans
@@ -65,7 +65,7 @@ services:
       - eureka-service
     environment:
       - SERVER_PORT=9092
-      - SPRING_DATA_MONGODB_URI=mongodb://joban:joban@mongo-db:27017/
+      - SPRING_DATA_MONGODB_URI=mongodb://root:root@mongo-db:27017/
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-service:7000/eureka
       - SPRING_DATA_MONGODB_DATABASE=job
       - MANAGEMENT.ZIPKIN.TRACING.ENDPOINT=http://zipkin:9411//api/v2/spans
@@ -79,7 +79,7 @@ services:
       - "9092:9092"
 
   reviewmsvc:
-    image: 'acrcw/reviewmicrosvc:v1'
+    image: 'reviewmicrosvc'
     build:
       context: .
     container_name: reviewmsvc
@@ -88,7 +88,7 @@ services:
       - rabbitmq-server
     environment:
       - SERVER_PORT=9093
-      - SPRING_DATA_MONGODB_URI=mongodb://joban:joban@mongo-db:27017/
+      - SPRING_DATA_MONGODB_URI=mongodb://root:root@mongo-db:27017/
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-service:7000/eureka
       - SPRING_DATA_MONGODB_DATABASE=review
       - MANAGEMENT.ZIPKIN.TRACING.ENDPOINT=http://zipkin:9411//api/v2/spans
@@ -102,7 +102,7 @@ services:
       - "9093:9093"
 
   eureka-service:
-    image: 'acrcw/eurekaserver:v1'
+    image: 'eurekaserver'
     build:
       context: .
     container_name: eureka-service
@@ -116,7 +116,7 @@ services:
       - microservicenetwork
 
   API-Gateway-service:
-    image: 'acrcw/apigateway:v1'
+    image: 'apigateway'
     build:
       context: .
     container_name: API-Gateway-service

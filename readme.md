@@ -8,6 +8,7 @@
 6) has resilence4j for handling cases(circuit breaking) when the other service may be down. 
 7) each microservice(job,company,review) has swagger hub as its front end for proper documentation of that api
 8) has mongo express to visualize the database(mongodb)
+9) u dont need to install maven to build the docker image 
 
 # limitation
 by default all three microservices(job,company,review) are using the same database. If u want each ms to use separate database then just create 3 diffrent copies of mongo-db service in docker compose file each with different port and the provide the url of each mongodb instance to microservice as a environment variable for example:

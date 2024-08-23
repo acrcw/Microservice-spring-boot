@@ -9,7 +9,7 @@
 
 # to run the microservices
 go inside each microservice and run the cmd mentioned in readme.md of each microservice
-this will build a local docker image and then run the docker compose file and the u can use the post man collection to use the api
+this will build a local docker image and then run the docker compose file and then you can use the postman collection to use the acces the api endpoints
 
 # to run the docker compose file
  docker compose up -d

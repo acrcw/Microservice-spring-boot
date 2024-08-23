@@ -1,5 +1,5 @@
 # cmd to build the spring boot app with docker and paketo build packs
- ./mvnw spring-boot:build-image "-Dspring-boot.build-image.imageName=acrcw/companymicrosvc:latest"
+ ./mvnw spring-boot:build-image "-Dspring-boot.build-image.imageName=companymicrosvc:latest"
 
 # to run the docker compose file
  docker compose up -d

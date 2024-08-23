@@ -10,7 +10,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: joban
       MONGO_INITDB_ROOT_PASSWORD: joban
     networks: 
-      - microserver
+      - microservicenetwork
     volumes:
       - mongodb_data_container:/data/db
 
@@ -30,7 +30,7 @@ services:
       ME_CONFIG_BASICAUTH: false
       ME_CONFIG_MONGODB_SERVER: mongo-db
     networks: 
-      - microserver
+      - microservicenetwork
 
   companymsvc:
     image: 'acrcw/companymicrosvc:v1'
@@ -52,7 +52,7 @@ services:
       - SPRING.RABBITMQ.PASSWORD=guest
 
     networks: 
-      - microserver
+      - microservicenetwork
     ports:
       - "9091:9091"
 
@@ -74,7 +74,7 @@ services:
       - SPRING.RABBITMQ.USERNAME=guest
       - SPRING.RABBITMQ.PASSWORD=guest
     networks: 
-      - microserver
+      - microservicenetwork
     ports:
       - "9092:9092"
 
@@ -97,7 +97,7 @@ services:
       - SPRING.RABBITMQ.USERNAME=guest
       - SPRING.RABBITMQ.PASSWORD=guest
     networks: 
-      - microserver
+      - microservicenetwork
     ports:
       - "9093:9093"
 
@@ -113,7 +113,7 @@ services:
     ports:
       - "8761:7000"
     networks: 
-      - microserver
+      - microservicenetwork
 
   API-Gateway-service:
     image: 'acrcw/apigateway:v1'
@@ -133,7 +133,7 @@ services:
     ports:
       - "8080:8080"
     networks: 
-      - microserver
+      - microservicenetwork
 
   zipkin:
     image: openzipkin/zipkin
@@ -141,7 +141,7 @@ services:
     ports:
       - "9411:9411"
     networks:
-    - microserver
+    - microservicenetwork
 
   rabbitmq-server:
     image: rabbitmq:3.13-management
@@ -150,10 +150,10 @@ services:
       - "5672:5672"
       - "15672:15672"
     networks:
-    - microserver
+    - microservicenetwork
       
 networks:
-  microserver:
+  microservicenetwork:
     driver: bridge
 
 volumes:

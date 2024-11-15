@@ -62,7 +62,7 @@ public class CompanyController {
     }
     // to update the created company fully ✅✅
     @PutMapping("/company/{id}")
-    public ResponseEntity<Company> updateCompany(@PathVariable String id, @RequestBody CompanyDto j )
+    public ResponseEntity<Company> updateCompany(@PathVariable String id,@Valid @RequestBody CompanyDto j )
     {
         Company rv=svc.updateCompany(id,j);
         if(rv!=null){

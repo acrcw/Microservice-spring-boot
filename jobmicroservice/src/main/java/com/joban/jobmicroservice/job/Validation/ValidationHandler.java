@@ -1,4 +1,4 @@
-package com.joban.companymicroservice.company.Validation;
+package com.joban.jobmicroservice.job.Validation;
 
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
